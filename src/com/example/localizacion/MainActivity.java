@@ -24,11 +24,10 @@ public class MainActivity extends Activity implements LocationListener{
 	public LocationManager locationManager;
 	public TextView latitud;
 	public TextView longitud,accuracy,speed,altitude,pro;
-	public ProgressBar bar;
 	public SendData senddata;
 	public Button btnconnect;
 	public EditText hostname;
-	public double dlatitude;
+	public double dlatitude,dlongitude;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,18 +42,15 @@ public class MainActivity extends Activity implements LocationListener{
 		pro = (TextView) findViewById(R.id.provider);
 		btnconnect = (Button) findViewById(R.id.send);
 		hostname = (EditText) findViewById(R.id.et_hostname);
-		bar = (ProgressBar) findViewById(R.id.progressBar2);
 		
 		 locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 	     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 0, this);
-	     //locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0, this);
 		
 	}
 	
 	public void connect(View view){
-		btnconnect.setText(String.format("%9.6f",this.dlatitude));
-		senddata = new SendData(this,bar,hostname.getText().toString());
-		Log.i("in connect: ", "fail");
+		senddata = new SendData(this,hostname.getText().toString(),String.format("%9.6f",this.dlatitude),String.format("%9.6f",this.dlongitude));
+		//Log.i("in connect: ", "fail");
 		senddata.execute();
 	}
 
@@ -82,6 +78,7 @@ public class MainActivity extends Activity implements LocationListener{
 	public void onLocationChanged(Location location) {
 		// TODO Auto-generated method stub
 		dlatitude = location.getLatitude();
+		dlongitude = location.getLongitude();
 		latitud.setText("Latitude: "+String.format("%9.6f",location.getLatitude())+"°");
 		longitud.setText("Longitude: "+String.format("%9.6f",location.getLongitude())+"°");
 		accuracy.setText("Accuracy: "+String.format("%9.3f",location.getAccuracy())+"m");

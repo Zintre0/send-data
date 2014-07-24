@@ -86,16 +86,10 @@
             android:id="@+id/et_hostname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="181.75.122.86"
+            android:text="http://172.16.57.132/~laost/Symfony/web/app_dev.php/addPoint/"
             android:ems="10" >
 
             <requestFocus />
         </EditText>
-
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="248dp"
-            android:layout_height="match_parent" />
     
 </LinearLayout>

@@ -45,7 +45,7 @@ public class SendData extends AsyncTask<Void, Integer, Boolean> {
 		this.mProgressDialog.setCancelable(true);
 	}
 
-	private void longworck() {
+	private void timer() {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -55,35 +55,23 @@ public class SendData extends AsyncTask<Void, Integer, Boolean> {
 	@Override
 	protected Boolean doInBackground(Void... params) {
 
-		/*
-		 * HttpResponse response = null; try { // Create http client object to
-		 * send request to server HttpClient client = new DefaultHttpClient();
-		 * // Create URL string String URL =
-		 * "http://172.16.57.132/~laost/Symfony/web/app_dev.php/addPoint/?latitude=1234&longitude=4321"
-		 * ; // Create Request to server and get response HttpGet httpget= new
-		 * HttpGet(); httpget.setURI(new URI(URL)); response =
-		 * client.execute(httpget); } catch (URISyntaxException e) {
-		 * e.printStackTrace(); } catch (ClientProtocolException e) { // TODO
-		 * Auto-generated catch block } catch (IOException e) { // TODO
-		 * Auto-generated catch block }
-		 */
-
 		// Create a new HttpClient and Post Header
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httppost = new HttpPost(this.hostname);
+		//http://172.16.50.35/~ramirez/testAddPoint.php
+		//http://172.16.57.132/~laost/Symfony/web/app_dev.php/addPoint/
 
 		try {
 			// Add your data
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
 			nameValuePairs.add(new BasicNameValuePair("longitude", this.longitude));
 			nameValuePairs.add(new BasicNameValuePair("latitude", this.latitude));
-			//Log.i("SENDDATA", "latitude1223");
 			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 			// Execute HTTP Post Request
-			longworck();
+			timer();
 			HttpResponse response = httpclient.execute(httppost);
 			int responseCode = response.getStatusLine().getStatusCode();
-			longworck();
+			timer();
 			switch(responseCode) {
 				case 200:
 					HttpEntity entity = response.getEntity();
@@ -103,10 +91,10 @@ public class SendData extends AsyncTask<Void, Integer, Boolean> {
 		return true;
 	}
 
-	@Override
+	/*@Override
 	protected void onProgressUpdate(Integer... values) {
 		int progreso = values[0].intValue();
-	}
+	}*/
 
 	@Override
 	protected void onPreExecute() {

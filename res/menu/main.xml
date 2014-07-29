@@ -1,19 +1,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.localizacion.MainActivity" >
-
+   
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/change_host"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
-    <item android:id="@+id/new_game"
-          android:icon="@drawable/ic_new_game"
-          android:title="@string/new_game"
-          android:showAsAction="ifRoom"/>
-    <item android:id="@+id/help"
-          android:icon="@drawable/ic_help"
-          android:title="@string/help" />
-    
-
+        android:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_menu_add"
+        android:title="@string/change_host">
+        <menu xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:id="@+id/host1"
+                android:title="http://192.168.2.18/~ramirez/testAddPoint.php"/>
+            <item android:id="@+id/host2" 
+                android:title="http://172.16.57.132/~laost/Symfony/web/app_dev.php/addPoint/"/>
+        </menu>
+    </item>
 </menu>

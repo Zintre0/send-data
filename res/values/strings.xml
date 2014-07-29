@@ -10,5 +10,6 @@
     <string name="speed">Speed: </string>
     <string name="altitude">Altitude: </string>
     <string name="send">SEND</string>
+    <string name="change_host">Change host</string>
 
 </resources>

@@ -28,20 +28,23 @@ public class MainActivity extends Activity implements LocationListener{
 	public Button btnconnect;
 	public EditText hostname;
 	public double dlatitude,dlongitude;
+	private TextView longitude;
+	private TextView latitude;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		latitud = (TextView) findViewById(R.id.latitude);
-		longitud = (TextView) findViewById(R.id.longitude);
+		latitude = (TextView) findViewById(R.id.latitude);
+		longitude = (TextView) findViewById(R.id.longitude);
 		accuracy = (TextView) findViewById(R.id.accuracy);
 		speed = (TextView) findViewById(R.id.speed);
 		altitude = (TextView) findViewById(R.id.altitude);
 		pro = (TextView) findViewById(R.id.provider);
 		btnconnect = (Button) findViewById(R.id.send);
 		hostname = (EditText) findViewById(R.id.et_hostname);
+		//hostname.setText("http://192.168.2.18/~ramirez/testAddPoint.php");
 		
 		 locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 	     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 0, this);
@@ -67,9 +70,16 @@ public class MainActivity extends Activity implements LocationListener{
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		 switch (item.getItemId()) {
+		 	//case R.id.action_settings:
+		 	//	latitude.setText("click!");
+		 	//	return true;
+		 	case R.id.host1:
+		 		hostname.setText("http://192.168.2.18/~ramirez/testAddPoint.php");
+		 		return true;
+		 	case R.id.host2:
+		 		hostname.setText("http://172.16.57.132/~laost/Symfony/web/app_dev.php/addPoint/");
+		 		return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}

@@ -86,7 +86,7 @@
             android:id="@+id/et_hostname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="http://172.16.57.132/~laost/Symfony/web/app_dev.php/addPoint/"
+            android:text="http://192.168.2.18/~ramirez/testAddPoint.php"
             android:ems="10" >
 
             <requestFocus />

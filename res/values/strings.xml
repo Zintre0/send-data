@@ -11,5 +11,6 @@
     <string name="altitude">Altitude: </string>
     <string name="send">SEND</string>
     <string name="change_host">Change host</string>
+    <string name="completed_task">Completed Task!</string>
 
 </resources>

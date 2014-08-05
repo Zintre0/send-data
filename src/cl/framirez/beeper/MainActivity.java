@@ -4,19 +4,23 @@ Copyright 2014 Fabián Ramírez Barrios
 
 package cl.framirez.beeper;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import cl.framirez.beeper.R;
+import com.example.localizacion.R;
 
 public class MainActivity extends Activity implements LocationListener{
 
@@ -52,6 +56,31 @@ public class MainActivity extends Activity implements LocationListener{
 		senddata = new SendData(this,hostname.getText().toString(),String.format("%9.6f",this.dlatitude),String.format("%9.6f",this.dlongitude));
 		//Log.i("in connect: ", "fail");
 		senddata.execute();
+	}
+	
+	public void teest(View view){
+		JSONObject jsonObj = new JSONObject();
+		String algo,a;
+		try {
+			jsonObj.put("name", "Fabian");
+			jsonObj.put("name2", "Natalia");
+			jsonObj.put("num", 11212);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		algo=jsonObj.toString();
+		JSONObject jObj;
+		try {
+			jObj = new JSONObject(algo);
+			a = jObj.getString("num");
+			this.hostname.setText(a);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	@Override

@@ -25,7 +25,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
-import cl.framirez.beeper.R;
+import com.example.localizacion.R;
 
 public class SendData extends AsyncTask<Void, Integer, Boolean> {
 
@@ -113,7 +113,6 @@ public class SendData extends AsyncTask<Void, Integer, Boolean> {
 
 	@Override
 	protected void onCancelled() {
-		Toast.makeText(this.context, "Tarea cancelada!", Toast.LENGTH_SHORT)
-				.show();
+		Toast.makeText(this.context,R.string.task_canceled, Toast.LENGTH_SHORT).show();
 	}
 }

@@ -10,7 +10,8 @@
     <string name="speed">Speed: </string>
     <string name="altitude">Altitude: </string>
     <string name="send">SEND</string>
-    <string name="change_host">Change host</string>
+    <string name="task_canceled">Task canceled!</string><string name="change_host">Change host</string>
     <string name="completed_task">Completed Task!</string>
+    
 
 </resources>

@@ -5,7 +5,7 @@ import java.util.TimerTask;
  
 
 
-import cl.framirez.beeper.R;
+import com.example.localizacion.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;

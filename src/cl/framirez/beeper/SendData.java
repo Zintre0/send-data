@@ -19,12 +19,15 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
+
 import com.example.localizacion.R;
 
 public class SendData extends AsyncTask<Void, Integer, Boolean> {
@@ -79,6 +82,15 @@ public class SendData extends AsyncTask<Void, Integer, Boolean> {
 					    if(entity != null) {
 					        String responseBody = EntityUtils.toString(entity);
 					        Log.i("SENDDATA", responseBody);
+					        JSONObject jObj;
+							try {
+								jObj = new JSONObject(responseBody);
+								Log.i("SENDDATA2", "Respuesta2: "+jObj.getString("a"));
+								Log.i("SENDDATA2", "Respuesta2: "+jObj.getString("b") + jObj.getString("c") + jObj.getString("d") + jObj.getString("e"));
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 					    }
 					    break;
 			}

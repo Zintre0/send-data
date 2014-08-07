@@ -79,14 +79,22 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="teest"
+            android:onClick="connect"
             android:text="@string/send" />
+        
+        <Button
+            android:id="@+id/ttttt"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="teest"
+            android:text="test" />
 
         <EditText
             android:id="@+id/et_hostname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="http://192.168.2.18/~ramirez/testAddPoint.php"
+            android:text="http://192.168.2.18/~ramirez/testJSON.php"
             android:ems="10" >
 
             <requestFocus />
